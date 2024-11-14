@@ -1,0 +1,18 @@
+<h1>Kiválasztott szolgáltatás</h1>
+<div class="service-details-container">
+  <h2 class="service-title">{{service?.name}}</h2>
+  <p class="service-description">{{service?.description}}</p>
+  <div class="service-person">
+    <img class="person-photo" [src]="service?.person?.photoUrl" [alt]="service?.person?.name">
+    <p class="person-name">{{service?.person?.name}}</p>
+  </div>
+  <h3>Elérhető időpontok:</h3>
+  <ul>
+    @for (item of service?.availableTimes; track $index) {
+      <li class="service-times">
+        <p>{{item}}</p>
+        <button class="book-button" (click)="removeAppointment(service)">Foglalás</button>
+      </li>
+    }
+  </ul>
+</div>
